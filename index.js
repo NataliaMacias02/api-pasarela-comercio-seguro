@@ -1,16 +1,18 @@
-const express = require("express");
-const helmet = require("helmet");
-const dotenv = require("dotenv");
+require("dotenv").config();
 
-dotenv.config();
+const express = require("express");
+const connectDB = require("./src/config/database");
 
 const app = express();
 
-app.use(helmet());
+const PORT = process.env.PORT || 5100;
 
-const PORT = 5100;
+// Conectar a MongoDB
+connectDB();
+
+app.use(express.json());
 
 app.listen(PORT, () => {
-  console.log("Hello World");
-  console.log(`Server running on port ${PORT}`);
+    console.log("Hello World");
+    console.log(`Servidor ejecutándose en el puerto ${PORT}`);
 });
