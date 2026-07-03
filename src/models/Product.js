@@ -111,7 +111,6 @@ const productSchema = new mongoose.Schema(
 // Índices para búsqueda en catálogo
 productSchema.index({ name: 'text', description: 'text', tags: 'text' });
 productSchema.index({ category: 1, isActive: 1 });
-productSchema.index({ sku: 1 });
 productSchema.index({ price: 1 });
 productSchema.index({ stock: 1 }); // Para alertas de stock bajo
 

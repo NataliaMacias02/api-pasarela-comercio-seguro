@@ -55,12 +55,11 @@ const cartSchema = new mongoose.Schema(
   }
 );
 
-cartSchema.index({ user: 1 });
-
 // Renovar TTL al modificar el carrito
-cartSchema.pre('save', function (next) {
-  this.expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-  next();
+cartSchema.pre("save", function () {
+  this.expiresAt = new Date(
+    Date.now() + 7 * 24 * 60 * 60 * 1000
+  );
 });
 
 module.exports = mongoose.model('Cart', cartSchema);

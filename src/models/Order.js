@@ -136,17 +136,17 @@ const orderSchema = new mongoose.Schema(
 );
 
 // Generar número de orden único antes de guardar
-orderSchema.pre('save', async function (next) {
-  if (!this.isNew) return next();
+orderSchema.pre("save", async function () {
+  if (!this.isNew) return;
+
   const timestamp = Date.now().toString(36).toUpperCase();
   const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+
   this.orderNumber = `ORD-${timestamp}-${random}`;
-  next();
 });
 
 orderSchema.index({ user: 1, createdAt: -1 });
 orderSchema.index({ status: 1, createdAt: -1 });
-orderSchema.index({ orderNumber: 1 });
 orderSchema.index({ paymentStatus: 1 });
 orderSchema.index({ createdAt: -1 });
 
