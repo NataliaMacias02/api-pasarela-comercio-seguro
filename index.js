@@ -7,6 +7,7 @@ const productRoutes = require("./src/routes/productRoutes");
 const userRoutes = require("./src/routes/userRoutes");
 const cartRoutes = require("./src/routes/cartRoutes");
 const orderRoutes = require("./src/routes/orderRoutes");
+const validateToken = require("./src/middleware/validateToken");
 
 const app = express();
 
