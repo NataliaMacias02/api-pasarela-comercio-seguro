@@ -47,6 +47,13 @@ const userSchema = new mongoose.Schema(
       enum: ['cliente', 'admin', 'bodeguero'],
       default: 'cliente',
     },
+
+    // Nuevo campo para usuarios premium
+    isPremium: {
+      type: Boolean,
+      default: false,
+    },
+
     addresses: {
       type: [addressSchema],
       validate: {
