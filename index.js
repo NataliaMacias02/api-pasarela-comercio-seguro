@@ -43,7 +43,7 @@ app.use(
 
 // Configuración de CORS
 const allowedOrigins = [
-    "http://localhost:3000"
+    "http://localhost:3000" // para usar en react se corre en el 3000 port y tiene
 ];
 
 app.use(
